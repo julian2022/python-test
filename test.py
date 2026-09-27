@@ -1,20 +1,31 @@
-class book:
+class Book:
     def __init__(self, title, author):
         self.title = title
         self.author = author
-        self.is_borrowed = False
+        self.is_borrowed =  False
     def borrow(self):
-        self.is_borrowed = True
-        print(self.title,"is borrowed")
+        if self.is_borrowed:
+           self.is_borrowed = True
+           print(self.title,"by",self.author,"is successfully borrowed")
+        else:
+            print(self.title,"by",self.author,"is already borrowed")
     def return_book(self):
-        self.is_borrowed = False
-        print(self.title,"is not borrowed")
-obj = book("the famous five","gnid blyton")
-obj2 = book("alice in the wonderland", "lewis carol")
-obj3 = book("the tree and the breeze", "sudha murty")
+        if self.is_borrowed:
+           self.is_borrowed = False
+           print(self.title,"by",self.author,"is successfully returned")
+        else:
+           print(self.title,"by",self.author,"is not returned")
+    def display(self):
+        print("Title:",self.title)
+        print("Author:",self.author)
+
+obj = Book("the famous five","gnid blyton")
+obj2 = Book("alice in the wonderland", "lewis carol")
+obj3 = Book("the tree and the breeze", "sudha murty")
+obj.display()
 obj.borrow()
-obj.return_book()
+obj2.display()
 obj2.borrow()
-obj2.return_book()
+obj3.display()
 obj3.borrow()
-obj3.return_book()
+
